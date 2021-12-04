@@ -1,5 +1,5 @@
-import express from 'express'
-import mongoose from 'mongoose'
+const express = require('express')
+const mongoose = require('mongoose')
 
 // Settings
 const app = express()
@@ -13,7 +13,7 @@ app.use(express.json())
 // Routes
 app.use('/api/products', require('./src/routes/products'))
 
-// Server up
+// Server port
 app.listen(app.get('port'), () => {
   console.log('Server listen on port', app.get('port'))
 })
