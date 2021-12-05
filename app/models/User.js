@@ -2,13 +2,11 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 module.exports = mongoose.model(
-  'Product',
+  'User',
   new Schema({
     name: { type: String, required: true },
-    description: String,
-    price: Number,
-    imageUrl: String,
-    qualification: Number,
-    create_date: { type: Date, default: Date.now },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
+    create_at: { type: Date, default: Date.now },
   })
 )

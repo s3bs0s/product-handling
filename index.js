@@ -1,19 +1,22 @@
+require('dotenv').config()
 const express = require('express')
-const mongoose = require('mongoose')
+const cors = require('cors')
+const connectDatabase = require('./app/config/mongo')
+const app = express()
+const PORT = process.env.PORT || 3000
 
 // Settings
-const app = express()
-mongoose.connect('mongodb://localhost:27017/product-handling')
-  .then(() => console.log('Database is connected'))
-  .catch(error => console.error(error))
-app.set('port', 3001)
+connectDatabase()
 app.use(express.static(__dirname + '/public'))
+app.use(cors())
 app.use(express.json())
 
 // Routes
-app.use('/api/products', require('./src/routes/products'))
+const verifySession = require('./app/routes/middleware/verifySession')
+app.use('/api/products', verifySession, require('./app/routes/products'))
+app.use('/api/auth', require('./app/routes/auth'))
 
 // Server port
-app.listen(app.get('port'), () => {
-  console.log('Server listen on port', app.get('port'))
+app.listen(PORT, () => {
+  console.log('Server listen on port', PORT)
 })
