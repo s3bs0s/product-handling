@@ -14,6 +14,9 @@ app.use(express.json())
 const verifySession = require('./app/routes/middleware/verifySession')
 app.use('/api/products', verifySession, require('./app/routes/products'))
 app.use('/api/auth', require('./app/routes/auth'))
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+})
 
 // Server port
 const HOST = process.env.HOST || '0.0.0.0'

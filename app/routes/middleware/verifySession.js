@@ -1,7 +1,7 @@
 const JWT = require('jsonwebtoken')
 
 const verifySession = (req, res, next) => {
-  const token = req.header('auth-token')
+  const token = req.header('authorization')
 
   if (!token) {
     return res.status(401).json({ error: 'No tiene autorización' })

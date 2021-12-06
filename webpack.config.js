@@ -1,35 +1,38 @@
 const { VueLoaderPlugin } = require('vue-loader')
+const path = require('path')
 
 module.exports = {
   entry: './resources/index.js',
   output: {
-    path: __dirname + '/public/js',
+    path: path.join(__dirname + '/public/js'),
     filename: 'bundle.js'
   },
   // Instrucciones del webpack para compilar código
   module: {
     rules: [
       {
-        // Transpilador de código moderno de JavaScript
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
+        // Transpilador de estilos CSS en archivos VUE
+        test: /\.css/,
+        exclude: /node_module/,
+        use: ['vue-style-loader', 'css-loader']
       },
       {
-        // Transpilador del framework Vue.js a código
-        // JavaScript que el navegador pueda leer
+        // Transpilador de código moderno de JavaScript
+        test: /\.js$/,
+        exclude: /node_module/,
+        loader: 'babel-loader'
+      },
+      {
+        // Transpilador de archivos VUE
         test: /\.vue$/,
+        exclude: /node_module/,
         loader: 'vue-loader'
       },
       {
-        // Transpilador de estilos SASS a CSS
+        // Transpilador de archivos de estilo SASS
         test: /\.scss$/,
-        exclude: /node_modules/,
-        use: [
-          "style-loader", // Crea los CSS de los textos en JavaScript
-          "css-loader", // Traducce CSS dentró de JavaScript
-          "sass-loader" // Transpila estilos SASS a CSS 
-        ]
+        exclude: /node_module/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },

@@ -35,8 +35,8 @@ const logInUser = async ({ body }, res) => {
     }, process.env.TOKEN_SECRET)
 
     res
-      .header('auth-token', token)
-      .json({ login: true })
+      .header('authorization', token)
+      .json({ token })
   } catch (error) {
     httpError(res, error)
   }
