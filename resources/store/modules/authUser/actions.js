@@ -7,14 +7,18 @@ export default {
       const { data } = await axios.post('/api/auth/login', body)
       commit('setAuthUser', { ...JWTDecode(data.token), token: data.token })
       localStorage.setItem('authorizationToken', data.token)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   },
   async register(vuex, body) {
     try {
       await axios.post('/api/auth/register', body)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   },

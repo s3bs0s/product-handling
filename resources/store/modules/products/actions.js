@@ -6,7 +6,9 @@ export default {
       const headers = { authorization: localStorage.getItem('authorizationToken') }
       const { data } = await axios.get('/api/products', { headers })
       commit('setProducts', data)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   },
@@ -15,7 +17,9 @@ export default {
       const headers = { authorization: localStorage.getItem('authorizationToken') }
       const { data } = await axios.post('/api/products', body, { headers })
       commit('addProduct', data)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   },
@@ -24,7 +28,9 @@ export default {
       const headers = { authorization: localStorage.getItem('authorizationToken') }
       const { data } = await axios.put('/api/products', body, { headers })
       commit('updateProduct', data)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   },
@@ -33,7 +39,9 @@ export default {
       const headers = { authorization: localStorage.getItem('authorizationToken') }
       await axios.delete(`/api/products/${id}`, { headers })
       commit('deleteProduct', id)
-    } catch ({ response: { data: error } }) {
+    } catch (catchError) {
+      console.error(catchError)
+      const { response: { data: error } } = catchError
       throw error
     }
   }
