@@ -6,11 +6,7 @@
         <i class="icon-user" />
         <p>Perfil</p>
       </button>
-      <router-link
-        :to="{ name: 'products' }"
-        tag="button"
-        class="site"
-      >
+      <router-link :to="{ name: 'products' }" tag="button" class="site">
         <i class="icon-price-tags" />
         <p>Productos</p>
       </router-link>

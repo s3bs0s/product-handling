@@ -1,93 +1,38 @@
 <template>
-  <div class="modal">
-    <div class="content">
-      <div
-        class="modalHeader"
-        :class="[product.hasOwnProperty('_id') ? 'bgInfo' : 'bgSuccess']"
-      >
-        <h4 v-if="product.hasOwnProperty('_id')">Editar un producto</h4>
-        <h4 v-else>Agregar un producto</h4>
-        <button class="close" @click="close">
-          <i class="icon-cross" />
-        </button>
-      </div>
-      <div class="modalBody">
-        <div class="formInput">
-          <label>Nombre</label>
-          <input
-            v-on:keyup.enter="send"
-            v-model="form.name"
-            :disabled="loading"
-            type="text"
-          />
-        </div>
-        <div class="formInput">
-          <label>Descripción</label>
-          <input
-            v-on:keyup.enter="send"
-            v-model="form.description"
-            :disabled="loading"
-            type="text"
-          />
-        </div>
-        <div class="formInput">
-          <label>Imagen</label>
-          <input
-            v-on:keyup.enter="send"
-            v-model="form.image_url"
-            :disabled="loading"
-            type="text"
-          />
-        </div>
-        <div class="formInput">
-          <label>Precio</label>
-          <input
-            v-on:keyup.enter="send"
-            v-model.number="form.price"
-            :disabled="loading"
-            type="number"
-          />
-        </div>
-        <div class="formInput">
-          <label>Calificación</label>
-          <stars v-model.number="form.qualification" large />
-        </div>
-        <div class="modalFooter">
-          <button
-            :disabled="loading"
-            @click="close"
-            class="btn danger"
-          >
-            Cerrar
-          </button>
-          <button
-            v-if="product.hasOwnProperty('_id')"
-            :disabled="loading"
-            @click="send"
-            class="btn info"
-          >
-            Editar
-          </button>
-          <button
-            v-else
-            :disabled="loading"
-            @click="send"
-            class="btn success"
-          >
-            Agregar
-          </button>
-        </div>
-      </div>
+  <div class="modalBody">
+    <div class="imageSection">
+      <div class="preview" v-if="form.image_url" :style="{ backgroundImage: `url('${form.image_url}')` }" />
+      <form-input v-model="form.image_url" label="Imagen" :disabled="loading" @send="send" />
+    </div>
+    <form-input v-model="form.name" label="Nombre" :disabled="loading" @send="send" />
+    <form-input v-model="form.description" label="Descripción" type="textarea" :disabled="loading" @send="send" />
+    <form-input v-model="form.price" label="Precio" type="number" :disabled="loading" @send="send" />
+    <div class="formInput">
+      <label>Calificación</label>
+      <stars v-model.number="form.qualification" large />
+    </div>
+    <div class="modalFooter">
+      <button :disabled="loading" @click="$emit('close')" class="btn danger">
+        Cerrar
+      </button>
+      <button v-if="product.hasOwnProperty('_id')" :disabled="loading" @click="send" class="btn info">
+        Editar
+      </button>
+      <button v-else :disabled="loading" @click="send" class="btn success">
+        Agregar
+      </button>
     </div>
   </div>
 </template>
 
 <script>
   import Stars from '../Stars.vue'
+  import FormInput from '../FormInput.vue'
 
   export default {
     components: {
-      Stars
+      Stars,
+      FormInput
     },
     props: {
       product: { type: Object, default: () => ({}) },

@@ -53,7 +53,8 @@
     font-weight: 600;
   }
 
-  input {
+  input,
+  textarea {
     outline: none;
     border-radius: 6px;
     border: solid 1.5px #ABABAB;
@@ -76,6 +77,34 @@
         border: solid 1.5px #ABABAB;
       }
     }
+  }
+
+  textarea {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 90px;
+    max-height: 130px;
+  }
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .preview {
+    height: 90px;
+    margin: 4px 8px;
+    overflow: hidden;
+    width: 240px;
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+  }
+
+  div:last-child {
+    flex-grow: 100;
   }
 }
 
