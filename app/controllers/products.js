@@ -58,10 +58,11 @@ const updateProduct = async ({ user, body }, res) => {
       }
     }
 
-    await Product.findOneAndUpdate({ _id, user_id: user._id }, {
+    const update = {
       name, description, price, image_url, qualification
-    })
-    res.json({ update: true })
+    }
+    await Product.findOneAndUpdate({ _id, user_id: user._id }, update)
+    res.json({ ...update, _id, user_id: user._id })
   } catch (error) {
     httpError(res, error)
   }

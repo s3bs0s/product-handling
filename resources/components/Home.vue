@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar />
-    <div class="home">
+    <div class="container home">
       <button class="site" disabled>
         <i class="icon-user" />
         <p>Perfil</p>

@@ -8,7 +8,6 @@ export default {
       commit('setAuthUser', { ...JWTDecode(data.token), token: data.token })
       localStorage.setItem('authorizationToken', data.token)
     } catch ({ response: { data: error } }) {
-      console.log(error)
       throw error
     }
   },

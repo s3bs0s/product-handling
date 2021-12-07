@@ -42,7 +42,7 @@
   .alert.success,
   .alert.danger,
   .alert.warning {
-    p, i {
+    * {
       color: #FFF;
     }
   }

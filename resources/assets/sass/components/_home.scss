@@ -1,5 +1,4 @@
 .home {
-  padding: 40px 60px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -33,7 +32,7 @@
       }
     }
 
-    i, p {
+    * {
       color: #FFF;
     }
 
@@ -44,6 +43,24 @@
 
     p {
       font-size: 26px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .home {
+    .site {
+      height: 140px;
+      width: 140px;
+
+      i {
+        font-size: 50px;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 20px;
+      }
     }
   }
 }

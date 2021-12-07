@@ -1,0 +1,25 @@
+.stars {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .icon-star-full,
+  .icon-star-empty {
+    color: #e7c651;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
+.stars.readOnly {
+  .icon-star-full,
+  .icon-star-empty {
+    cursor: default;
+  }
+}
+
+.stars.large {
+  .icon-star-full,
+  .icon-star-empty {
+    font-size: 25px;
+  }
+}

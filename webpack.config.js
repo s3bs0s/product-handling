@@ -37,6 +37,7 @@ module.exports = {
       {
         // Creador de archivos de imagen
         test: /\.(jpg|png|gif)$/,
+        exclude: /node_module/,
         use: [
           {
             loader: 'file-loader',
