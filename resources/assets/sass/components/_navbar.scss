@@ -1,0 +1,79 @@
+.navbar {
+  background: #03111B;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  .side {
+    display: flex;
+    align-items: center;
+
+    button, p, i {
+      color: #FFF;
+    }
+
+    .logo {
+      width: 70px;
+      margin-right: 18px;
+    }
+
+    .subButton {
+      outline: none;
+      border: none;
+      background: none;
+      margin: 0 6px;
+      padding: 3px 0;
+      cursor: pointer;
+      border-bottom: solid 1px transparent;
+      transition: border 200ms ease;
+
+      &:hover {
+        border-bottom: solid 1px #FFF;
+      }
+    }
+
+    .user {
+      max-width: 230px;
+      margin-right: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .logout {
+      outline: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      display: flex;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+
+    .side:first-child {
+      flex-direction: column;
+    }
+
+    .side:last-child {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .side {
+      .logo {
+        width: 76px;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

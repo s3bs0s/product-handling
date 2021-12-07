@@ -4,14 +4,14 @@ const path = require('path')
 module.exports = {
   entry: './resources/index.js',
   output: {
-    path: path.join(__dirname + '/public/js'),
+    path: path.join(__dirname + '/public'),
     filename: 'bundle.js'
   },
   // Instrucciones del webpack para compilar código
   module: {
     rules: [
       {
-        // Transpilador de estilos CSS en archivos VUE
+        // Transpilador de estilos CSS
         test: /\.css/,
         exclude: /node_module/,
         use: ['vue-style-loader', 'css-loader']
@@ -33,6 +33,20 @@ module.exports = {
         test: /\.scss$/,
         exclude: /node_module/,
         use: ['vue-style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        // Creador de archivos de imagen
+        test: /\.(jpg|png|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'image/',
+              publicPath:'image/'
+            }  
+          }
+        ]
       }
     ]
   },

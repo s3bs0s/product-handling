@@ -4,6 +4,7 @@ import store from './store'
 import router from './router'
 import App from './App.vue'
 import './assets/sass/app.scss'
+import './assets/fonts/style.css'
 
 // Add Axios
 Vue.prototype.$http = axios;

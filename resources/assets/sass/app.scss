@@ -1,5 +1,7 @@
 @import 'components/auth';
 @import 'components/alerts';
+@import 'components/navbar';
+@import 'components/home';
 
 @mixin generateClassesBulk($className, $styleName, $max) {
   $i: 0;

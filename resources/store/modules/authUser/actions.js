@@ -5,7 +5,7 @@ export default {
   async login({ commit }, body) {
     try {
       const { data } = await axios.post('/api/auth/login', body)
-      commit('setAuthUser', JWTDecode(data.token))
+      commit('setAuthUser', { ...JWTDecode(data.token), token: data.token })
       localStorage.setItem('authorizationToken', data.token)
     } catch ({ response: { data: error } }) {
       console.log(error)
@@ -18,6 +18,10 @@ export default {
     } catch ({ response: { data: error } }) {
       throw error
     }
+  },
+  logout({ commit }) {
+    commit('setAuthUser', null)
+    localStorage.removeItem('authorizationToken')
   },
   getLocalToken({ commit }) {
     if (localStorage.getItem('authorizationToken')) {

@@ -2,7 +2,7 @@
   <div class="alerts" v-if="alerts.length > 0">
     <div class="alert" :class="alert.color" v-for="alert in alerts" :key="alert.id">
       <p>{{ alert.text }}</p>
-      <button class="close" @click="closeAlert(alert.id)">x</button>
+      <button class="close" @click="closeAlert(alert.id)"><i class="icon-cross" /></button>
     </div>
   </div>
 </template>

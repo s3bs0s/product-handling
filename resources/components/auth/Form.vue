@@ -9,6 +9,7 @@
       <div class="formInput" v-if="newUser">
         <label>Nombre</label>
         <input
+          v-on:keyup.enter="send"
           v-model="form.name"
           :disabled="loading"
           type="text"
@@ -18,6 +19,7 @@
       <div class="formInput">
         <label>Email</label>
         <input
+          v-on:keyup.enter="send"
           v-model="form.email"
           :disabled="loading"
           type="text"
@@ -26,7 +28,12 @@
       </div>
       <div class="formInput">
         <label>Password</label>
-        <input v-model="form.password" :disabled="loading" type="password" />
+        <input
+          v-on:keyup.enter="send"
+          v-model="form.password"
+          :disabled="loading"
+          type="password"
+        />
       </div>
     </div>
     <div class="footer">

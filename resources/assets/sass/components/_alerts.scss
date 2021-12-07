@@ -17,21 +17,24 @@
     position: relative;
     padding: 10px;
     word-wrap: break-word;
-    padding-right: 20px;
+    padding-right: 26px;
     border-radius: 10px;
     margin: 5px 0;
     box-shadow: 0px 1.6px 1px 1px rgba(0, 0, 0, 0.22);
 
     .close {
       position: absolute;
-      font-size: 21px;
       outline: none;
       background: none;
-      top: 1px;
+      top: 2px;
       font-weight: bold;
       right: 9px;
       border: none;
       cursor: pointer;
+
+      i {
+        font-size: 12px;
+      }
     }
   }
 
@@ -39,7 +42,7 @@
   .alert.success,
   .alert.danger,
   .alert.warning {
-    p, button {
+    p, i {
       color: #FFF;
     }
   }
