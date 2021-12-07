@@ -25,24 +25,16 @@ npm install
 
 ## Uso
 
-Ejecuta el servidor.
+Ejecute el servidor.
 
 ```bash
 npm run dev
 ```
 
-Ejecuta el empaquetador de desarrollo de archivos para ingresar vía web.
+Ejecute el empaquetador de desarrollo de archivos para ingresar vía web.
 
 ```bash
 npm run webpack-dev
-```
-
-## Preparación para el entorno de producción
-
-Elimine el contenido de la carpeta public excepto el archivo HTML y ejecute el empaquetador de producción.
-
-```bash
-npm run webpack-start
 ```
 
 ## Desarrollador
