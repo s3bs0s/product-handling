@@ -4,11 +4,19 @@ import JWTDecode from 'jwt-decode'
 export default {
   async login({ commit }, body) {
     try {
-      const response = await axios.post('/api/auth/login', body)
-      localStorage.setItem('authorizationToken', usuarioDB.data)
-      commit('setAuthUser', JWTDecode(response.data))
-    } catch (error) {
-      return error
+      const { data } = await axios.post('/api/auth/login', body)
+      commit('setAuthUser', JWTDecode(data.token))
+      localStorage.setItem('authorizationToken', data.token)
+    } catch ({ response: { data: error } }) {
+      console.log(error)
+      throw error
+    }
+  },
+  async register(vuex, body) {
+    try {
+      await axios.post('/api/auth/register', body)
+    } catch ({ response: { data: error } }) {
+      throw error
     }
   },
   getLocalToken({ commit }) {

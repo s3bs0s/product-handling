@@ -1,0 +1,47 @@
+.bodyUserForm {
+  background: linear-gradient(42deg, rgba(0,0,0,0.9976365546218487) 0%, rgba(9,73,121,1) 47%, rgba(8,62,103,0.8687850140056023) 84%);
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userForm {
+  background: #F1F1F1;
+  width: 35%;
+  min-width: 400px;
+  border-radius: 10px;
+  padding: 14px 18px;
+
+  .header {
+    text-align: center;
+
+    h2 {
+      font-size: 32px;
+      color: #242424;
+    }
+  }
+
+  hr {
+    margin: 10px auto;
+    background: #ABABAB;
+    padding: 0.5px;
+    border: none;
+    width: 80%;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 8px;
+  }
+}
+
+@media (max-width: 450px) {
+  .userForm {
+    min-width: 300px;
+  }
+}

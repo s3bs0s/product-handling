@@ -1,11 +1,18 @@
 <template>
-  <router-view/>
+  <div>
+    <router-view/>
+    <alerts />
+  </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
+  import Alerts from './components/Alerts.vue'
 
   export default {
+    components: {
+      Alerts
+    },
     data() {
       return {}
     },
